@@ -14,14 +14,24 @@ import { InvestmentResults } from "./investment-results/investment-results";
 export class App {
   protected readonly title = signal('section4-practie-investment');
 
-  resultsData?: {
+  // resultsData?: {
+  //   year: number,
+  //   interest: number,
+  //   valueEndOfYear: number,
+  //   annualInvestment: number,
+  //   totalInterest: number,
+  //   totalAmountInvested: number
+  // }[]
+
+  // usando signal
+  resultsData = signal<{
     year: number,
     interest: number,
     valueEndOfYear: number,
     annualInvestment: number,
     totalInterest: number,
     totalAmountInvested: number
-  }[]
+  }[] | undefined>(undefined)
   
 
   onCalculateInvestmentResults(data: InvestmentInput) {
@@ -45,7 +55,8 @@ export class App {
     });
   }
 
-  this.resultsData = annualData
+  // this.resultsData = annualData
+  this.resultsData.set(annualData)
   }
 
 }
