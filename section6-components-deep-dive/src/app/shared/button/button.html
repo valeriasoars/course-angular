@@ -1,2 +1,10 @@
 <span> <ng-content/> </span>
-<ng-content select=".icon"/> 
+<!-- <ng-content select=".icon"/>  -->
+
+<span class="icon">
+<ng-content select="icon"/> 
+</span>
+
+
+<!--A principal diferença entre usar select=".class" e ngProjectAs="icon" 
+(com select="icon") é o desacoplamento entre o estilo (CSS) e a estrutura do componente (Lógica).-->
