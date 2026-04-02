@@ -1,9 +1,10 @@
 import { Component, input, Input } from '@angular/core';
+import { ɵEmptyOutletComponent } from "@angular/router";
 
 
 @Component({
   selector: 'app-dashboard-item',
-  imports: [],
+  imports: [ɵEmptyOutletComponent],
   templateUrl: './dashboard-item.html',
   styleUrl: './dashboard-item.css',
 })
