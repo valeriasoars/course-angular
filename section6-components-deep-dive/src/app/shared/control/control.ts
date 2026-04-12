@@ -11,7 +11,8 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
   // Os elementos input ou textarea que aparecerão ali não pertencem tecnicamente ao template do seu componente Control; eles vêm de "fora" (do componente pai).
 
   host: {
-      class: 'control'
+      class: 'control',
+      '(click)': 'onClick()'
   } // dizendo ao Angular para adicionar automaticamente atributos, classes ou eventos diretamente à "casca" (o elemento host) do componente no HTML.
 
 
@@ -20,4 +21,8 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
 })
 export class Control {
   label = input.required<string>();
+
+  onClick(){
+    console.log('clicked')
+  }
 }
