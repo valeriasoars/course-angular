@@ -1,12 +1,10 @@
-<div class="dashboard-item">
-  <article>
-    <header>
-      <img [src]="image().src" [alt]="image().alt" />
-      <h2>{{ title() }}</h2>
-    </header>
+<article>
+  <header>
+    <img [src]="image().src" [alt]="image().alt" />
+    <h2>{{ title() }}</h2>
+  </header>
 
-    <!-- ng-content => é uma diretiva do Angular usada para projeção de conteúdo, permitindo inserir HTML ou outros
+  <!-- ng-content => é uma diretiva do Angular usada para projeção de conteúdo, permitindo inserir HTML ou outros
     componentes dinamicamente dentro de um componente filho a partir de um componente pai-->
-    <ng-content />
-  </article>
-</div>
+  <ng-content />
+</article>
