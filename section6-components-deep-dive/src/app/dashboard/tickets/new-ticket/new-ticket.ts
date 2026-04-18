@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewTicket {
 
-  @ViewChild('form') form?: ElementRef<HTMLFormElement>
+  @ViewChild('form') private form?: ElementRef<HTMLFormElement>
 
   onSubmit(title: string, ticketText: String){
     console.log(title)
