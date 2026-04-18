@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Button } from "../../../shared/button/button";
 import { Control } from "../../../shared/control/control";
 import { FormsModule } from '@angular/forms';
@@ -9,9 +9,20 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './new-ticket.html',
   styleUrl: './new-ticket.css',
 })
-export class NewTicket {
+export class NewTicket implements OnInit, AfterViewInit {
 
   @ViewChild('form') private form?: ElementRef<HTMLFormElement>
+
+  ngOnInit(){
+    console.log('oninit')
+    console.log(this.form?.nativeElement)
+  }
+
+  ngAfterViewInit(){
+    console.log('after view init')
+    console.log(this.form?.nativeElement)
+  }
+
 
   onSubmit(title: string, ticketText: String){
     console.log(title)

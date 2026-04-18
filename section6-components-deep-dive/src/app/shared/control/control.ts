@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, input, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ElementRef, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -15,9 +15,14 @@ import { Component, ContentChild, ElementRef, input, ViewEncapsulation } from '@
       '(click)': 'onClick()'
   } // dizendo ao Angular para adicionar automaticamente atributos, classes ou eventos diretamente à "casca" (o elemento host) do componente no HTML.
 })
-export class Control {
+export class Control implements AfterContentInit {
+
   label = input.required<string>()
   @ContentChild('input') private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>
+
+  ngAfterContentInit(){
+    //..
+  }
 
   onClick(){
     console.log('clicked')
