@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChild, ElementRef, input, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, afterEveryRender, afterNextRender, Component, ContentChild, ElementRef, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -19,6 +19,16 @@ export class Control implements AfterContentInit {
 
   label = input.required<string>()
   @ContentChild('input') private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>
+
+
+  constructor(){
+    // Executa toda vez que o Angular renderiza o componente - Na primeira renderização e  Sempre que algo muda (estado, input, evento, etc.)
+    afterEveryRender(() => { console.log('afterEveryRender')})
+
+    // Executa apenas uma vez, na próxima renderização
+    afterNextRender(() => {console.log('afterNextRender')})
+  }
+
 
   ngAfterContentInit(){
     //..
