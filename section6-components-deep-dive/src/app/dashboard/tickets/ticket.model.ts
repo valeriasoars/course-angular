@@ -1,4 +1,4 @@
-export interface Ticket {
+export interface TicketModel {
     id: string
     title: string
     request: string

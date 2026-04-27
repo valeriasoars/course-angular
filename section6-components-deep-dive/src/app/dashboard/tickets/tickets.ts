@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { NewTicket } from "./new-ticket/new-ticket";
-import { Ticket } from './ticket.model';
+import { Ticket } from "./ticket/ticket";
+import { TicketModel } from './ticket.model';
 
 @Component({
   selector: 'app-tickets',
-  imports: [NewTicket],
+  imports: [NewTicket, Ticket],
   templateUrl: './tickets.html',
   styleUrl: './tickets.css',
 })
 export class Tickets {
-  tickets: Ticket[] = []
+  tickets: TicketModel[] = []
 
   onAdd(ticketData: {title: string, text: string}){
-    const ticket: Ticket = {
+    const ticket: TicketModel = {
       title: ticketData.title,
       request: ticketData.text,
       id: Math.random().toString() ,
