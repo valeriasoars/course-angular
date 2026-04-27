@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { TicketModel } from '../ticket.model';
 
 @Component({
@@ -9,10 +9,15 @@ import { TicketModel } from '../ticket.model';
 })
 export class Ticket {
    data = input.required<TicketModel>()
+   close = output()
    detailsVisible = signal(false)
 
    onToogleDatails(){
     //this.detailsVisible.set(!this.detailsVisible())
     this.detailsVisible.update((wasVisible) => !wasVisible)
+   }
+
+   onMarkAsCompleted(){
+    this.close.emit()
    }
 }
