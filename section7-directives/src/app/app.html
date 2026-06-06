@@ -1,81 +1,31 @@
-<header>
-  <div id="logo">
-    <img src="logo.png" alt="Website logo, a server" />
-  </div>
-
-  <nav>
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/">Management</a>
-      </li>
-      <li>
-        <button>
-          <span>
-            Logout
-          </span>
-          <span class="icon">
-            →
-          </span>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</header>
-
 <main>
-  <div id="dashboard">
-    <div class="dashboard-item">
-      <article>
-        <header>
-          <img src="status.png" alt="A signal symbol" />
-          <h2>Server Status</h2>
-        </header>
-        <div>
-          @if (currentStatus === 'online') {
-            <p>Servers are online</p>
-            <p>All systems are operational.</p>
-          } @else if (currentStatus === 'offline') {
-            <p>Servers are offline</p>
-            <p>Functionality should be restored soon.</p>
-          } @else {
-            <p>Server status is unknown</p>
-            <p>Fetching server status failed.</p>
-          }
-        </div>
-      </article>
-    </div>
+  <app-learning-resources/>
 
-    <div class="dashboard-item">
-      <article>
-        <header>
-          <img src="globe.png" alt="A globe" />
-          <h2>Traffic</h2>
-        </header>
-        <div id="traffic">
-          <p>Last 7 days</p>
+  <hr />
 
-          <div id="chart">
-            @for (dataPoint of dummyTrafficData; track dataPoint.id) {
-              <div [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"></div>
-            }
-          </div>
-        </div>
-      </article>
-    </div>
+  <app-auth />
 
-    <div class="dashboard-item">
-      <article>
-        <header>
-          <img src="list.png" alt="A list of items" />
-          <h2>Support Tickets</h2>
-        </header>
-        <div id="status">
-          <p>Todo...</p>
-        </div>
-      </article>
-    </div>
-  </div>
+  @if(isAdmin()){
+  <p>Only admins should see this</p>
+  }
+
+
+  <!--diretivas de atributos vs diretivas estrutural-->
+
+  <!--Diretivas de Atributos (como ngModel, ngClass, ngStyle): Alteram apenas a aparência ou o 
+  comportamento de um elemento que já existe na tela. 
+  Elas não colocam e nem tiram tags do HTML; apenas modificam suas propriedades, estilos ou classes CSS.
+  
+  Diretivas Estruturais (como *ngIf, *ngFor): Alteram a estrutura do layout modificando 
+  diretamente o elemento no DOM. 
+  Elas adicionam, removem ou clonam elementos inteiros da página de forma dinâmica.
+  
+  O @if, @for e @switch são novos: Introduzidos no Angular 17, eles são chamados de 
+  Control Flow (Fluxo de Controle). Eles vieram para substituir a necessidade de usar as 
+  diretivas estruturais clássicas (*ngIf, *ngFor) no HTML do dia a dia, tornando o código mais 
+  rápido e limpo.
+  -->
+
+
+
 </main>
