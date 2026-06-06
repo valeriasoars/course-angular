@@ -5,11 +5,16 @@
 
   <app-auth />
 
-  @if(isAdmin()){
+  <!-- @if(isAdmin()){ 
   <p>Only admins should see this</p>
-  }
+  }-->
 
-
+  <!-- <p *ngIf="isAdmin()">Only admins should see this</p> -->
+  
+  <ng-template  appAuthDirective="admin">
+      <p>Only admins should see this</p>
+  </ng-template>
+ 
   <!--diretivas de atributos vs diretivas estrutural-->
 
   <!--Diretivas de Atributos (como ngModel, ngClass, ngStyle): Alteram apenas a aparência ou o 
