@@ -1,9 +1,9 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [DatePipe],
+  imports: [DatePipe, DecimalPipe],
   templateUrl: './app.html',
 })
 export class App {
