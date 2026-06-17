@@ -32,7 +32,7 @@ transform(value: string | number, inputType: 'cel' | 'fah', outputType?: 'cel' |
         symbol = outputType === 'cel' ? '°C' : '°F'
     }
  
-    return `${outputTemp} ${symbol}`
+    return `${outputTemp.toFixed(2)} ${symbol}`
 }
 
 
