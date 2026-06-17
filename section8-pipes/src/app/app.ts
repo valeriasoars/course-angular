@@ -1,10 +1,11 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { TemperaturePipe } from './temperature.pipe';
+import { SortPipe } from './sort-pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [DatePipe, DecimalPipe, TemperaturePipe],
+  imports: [DatePipe, DecimalPipe, TemperaturePipe, SortPipe],
   templateUrl: './app.html',
 })
 export class App {
