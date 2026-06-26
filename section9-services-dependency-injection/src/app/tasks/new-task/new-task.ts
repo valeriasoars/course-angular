@@ -13,11 +13,15 @@ export class NewTask {
 
   // com essa abordagem, temos uma instância para o componente NewTask e se depois quisermos utilizar esses dados em outro componente
   // é preciso criar uma instancai separada ( que não conteria as mesma informações) estaria trabalahndo com duas instanicas separadas
-  private taskService: TasksService;
+  // private taskService: TasksService;
 
-  constructor(){
-    this.taskService = new TasksService()
-  }
+  // constructor(){
+  //   this.taskService = new TasksService()
+  // }
+
+  // a injeção via construtor para garantir que o Angular crie uma instância única (Singleton) do serviço, 
+  // permitindo o compartilhamento de dados entre os componentes e facilitando testes.
+  constructor(private taskService: TasksService){ }
   
   onAddTask(title: string, description: string) {
     this.taskService.addTask({title, description})
