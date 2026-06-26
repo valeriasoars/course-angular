@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Task, TaskStatus } from '../../../task.model';
+import { Task, TaskStatus } from '../../task.model';
 
 @Component({
   selector: 'app-task-item',
