@@ -11,6 +11,6 @@ import { TasksService } from './tasks.service';
 // Fornecer o serviço no @Component cria uma instância local. 
 // Ela será compartilhada apenas entre este componente e seus filhos (NewTask e TasksList).
 // Se este componente for destruído, o serviço e seus dados também serão.
-  providers: [TasksService]
+  // providers: [TasksService]
 })
 export class Tasks {}

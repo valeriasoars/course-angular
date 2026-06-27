@@ -1,12 +1,14 @@
-import { Injectable, signal } from "@angular/core";
+import { inject, Injectable, signal } from "@angular/core";
 import { Task, TaskStatus } from "./task.model";
+import { Logging } from "../logging";
 
 
-// @Injectable({
-//     providedIn: 'root'  // Isso diz: "Angular, crie um Singleton global caso alguém peça"
-// })
+@Injectable({
+    providedIn: 'root'  // Isso diz: "Angular, crie um Singleton global caso alguém peça"
+})
 export class TasksService{
     private tasks = signal<Task[]>([])
+    private loggingService = inject(Logging)
 
     allTasks = this.tasks.asReadonly()
 
@@ -17,9 +19,11 @@ export class TasksService{
             status: 'OPEN'
         }
         this.tasks.update((oldTasks) => [...oldTasks, newTask])
+        this.loggingService.log('ADDED TASK WITH TITLE ' + taskData.title)
     }
 
     updateTaskStatus(taskId: string, newStatus: TaskStatus){
         this.tasks.update((oldTasks) => oldTasks.map((task) => task.id === taskId ? {...task, status: newStatus}: task))
+         this.loggingService.log('CHANGE TASK STATUS TO ' + newStatus)
     }
 }
