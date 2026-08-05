@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private destroyRef = inject(DestroyRef);
+  ngOnInit(): void {
+    const subscrition = interval(1000).subscribe({
+      next: (val) => console.log(val),
+    });
 
+    this.destroyRef.onDestroy(() => subscrition.unsubscribe());
+  }
 }
